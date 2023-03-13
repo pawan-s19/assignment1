@@ -20,7 +20,7 @@ const App = () => {
     let { data } = await axios.get(
       `http://pets-v2.dev-apis.com/pets?animal=${e.target.value}`
     );
-    setBreed(data.pets);
+    setBreed(data.pets); //setting breeds to show after animal is selected
   };
 
   let submitHandler = async (e) => {
@@ -29,7 +29,7 @@ const App = () => {
     let { data } = await axios.get(
       `http://pets-v2.dev-apis.com/pets?animal=${selectedAnimal}&location=${location}&breed=${selectedBreed}`
     );
-    setResult(data.pets);
+    setResult(data.pets); //setting all the results after form submission
   };
   return (
     <div className="container m-5">
@@ -75,6 +75,7 @@ const App = () => {
         </select>
         <input type="submit" className="btn btn-primary mt-4"></input>
       </form>
+
       {result.length !== 0 ? (
         result.map((e, i) => (
           <div key={i} className="card mt-5" style={{ width: "18rem" }}>
